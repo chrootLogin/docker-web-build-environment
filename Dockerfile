@@ -78,6 +78,7 @@ RUN EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q) 
   && if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]; then echo "Composer: Signature mismatch!" && exit 1; fi \
   && php7.0 composer-setup.php --quiet \
   && rm composer-setup.php
+  && mv composer.phar /usr/local/bin/composer
 
 # Install deployer
 RUN wget -O /tmp/deployer http://deployer.org/releases/${DEPLOYER_VERSION}/deployer.phar \
@@ -95,5 +96,5 @@ RUN curl -sL https://deb.nodesource.com/setup_6.x | bash - \
 
 # Install gulp
 RUN npm install -g gulp
-    
+
 CMD ["/bin/bash"]
