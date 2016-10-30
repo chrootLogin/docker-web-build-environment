@@ -21,6 +21,7 @@ RUN apt-get update \
   wget \
   bash \
   curl \
+  ssh-client \
   rsync \
   ca-certificates \
   build-essential \
