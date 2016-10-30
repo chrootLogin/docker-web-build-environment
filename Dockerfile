@@ -77,7 +77,7 @@ RUN EXPECTED_SIGNATURE=$(wget https://composer.github.io/installer.sig -O - -q) 
   && ACTUAL_SIGNATURE=$(php -r "echo hash_file('SHA384', 'composer-setup.php');") \
   && if [ "$EXPECTED_SIGNATURE" != "$ACTUAL_SIGNATURE" ]; then echo "Composer: Signature mismatch!" && exit 1; fi \
   && php7.0 composer-setup.php --quiet \
-  && rm composer-setup.php
+  && rm composer-setup.php \
   && mv composer.phar /usr/local/bin/composer
 
 # Install deployer
